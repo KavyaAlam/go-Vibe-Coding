@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wired</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+        <div id="login-error"></div>
+    </div>
+    <div id="dashboard" style="display:none;">
+        <header>
+            <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Dashboard Icon" />
+            <h1>Wired</h1>
+            <div id="avatar-quote-row" style="display:flex;align-items:center;justify-content:center;gap:1.5em;">
+                <img id="user-avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User Avatar" style="width:48px;height:48px;border-radius:50%;box-shadow:0 2px 8px #e0e7ff;" />
+                <div id="quote" style="min-width:220px;">“Code is like humor. When you have to explain it, it’s bad.” – Cory House</div>
+            </div>
+            <input type="text" id="search" placeholder="Search project, docs, code..." />
+        </header>
+        <nav>
+            <button class="tab" data-tab="project">Project Info</button>
+            <button class="tab" data-tab="code">Code Insights</button>
+            <button class="tab" data-tab="docs">Documentation</button>
+            <button class="tab" data-tab="learning">Learning</button>
+            <button class="tab" data-tab="team">Team</button>
+        </nav>
+        <main>
+            <section id="project" class="tab-content">
+                <button class="toggle-view" data-section="project">Switch to Chart</button>
+                <div class="data-table" id="project-table"></div>
+                <canvas id="project-chart" style="display:none;max-width:400px;height:220px;"></canvas>
+                <div id="project-list"></div>
+            </section>
+            <section id="code" class="tab-content" style="display:none;">
+                <button class="toggle-view" data-section="code">Switch to Chart</button>
+                <div class="data-table" id="code-table"></div>
+                <canvas id="code-chart" style="display:none;max-width:400px;height:220px;"></canvas>
+            </section>
+            <section id="docs" class="tab-content" style="display:none;">
+                <div style="margin-bottom:1em;">
+                    <label for="doc-upload" style="font-weight:bold;">Upload Document:</label>
+                    <input type="file" id="doc-upload" accept=".pdf,.doc,.docx,.txt" />
+                    <span id="doc-upload-status" style="margin-left:1em;color:#0078d4;"></span>
+                </div>
+                <button class="toggle-view" data-section="docs">Switch to Chart</button>
+                <div class="data-table" id="docs-table"></div>
+                <canvas id="docs-chart" style="display:none;max-width:400px;height:220px;"></canvas>
+            </section>
+            <section id="learning" class="tab-content" style="display:none;">
+                <button class="toggle-view" data-section="learning">Switch to Chart</button>
+                <div class="data-table" id="learning-table"></div>
+                <canvas id="learning-chart" style="display:none;max-width:400px;height:220px;"></canvas>
+            </section>
+            <section id="team" class="tab-content" style="display:none;">
+                <button class="toggle-view" data-section="team">Switch to Chart</button>
+                <div class="data-table" id="team-table"></div>
+                <canvas id="team-chart" style="display:none;max-width:400px;height:220px;"></canvas>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
